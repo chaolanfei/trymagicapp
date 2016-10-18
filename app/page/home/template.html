@@ -1,0 +1,53 @@
+<mg-page>
+<!-- /**
+ * 上部标题与输入部分
+ */ -->
+<style>[v-cloak] {display: none;}</style>
+<section class="todoapp">
+<header class="header">
+	<h1>todos</h1>
+	<input class="new-todo" autofocus autocomplete="off" placeholder="what need to be down?" v-model="newTodo" @keyup.enter="addTodo">
+</header>
+<!-- /**
+ * 中部路由与显示部分
+ */ -->
+<section class="main" v-show="todos.length" v-cloak>
+	<input id="toggle_all" class="toggle-all" type="checkbox" @click= "allDone">
+	<ul class="todo-list">
+		<li class="todo" v-for="todo in X_Todos" :class="{completed: todo.completed ,editing:todo == editedTodo}">
+			<div class="view">
+				<input id="toggle_this" class="toggle" type="checkbox" v-model = "todo.completed" value="true" @click="completeder(todo)">
+<!-- 				双击 长按 在MagicApp移动端有坑 -->
+				<label @dblclick="editTodo(todo)">{{todo.title}}</label>
+				<button class="destroy" @click="removeTodo(todo)"></button>
+			</div>
+			<input class="edit" type="text" v-model="todo.title" v-todo-focus="todo==editedTodo" @blur="doneEdit(todo)" @keyup.enter="doneEdit(todo)" @keyup.esc="cancelEdit(todo)">
+		</li>
+	</ul>
+</section>
+<!-- /**
+ * 中下部功能跳转部分
+ */ -->
+<footer class="footer" v-show="todos.length" v-cloak>
+<span class="todo-count">
+	<strong v-text="remaining"></strong>件事项
+</span>
+	<ul class="filters">
+		<li><a @click="all" class="selected:visibility == 'all'">ALL</a></li>
+		<li><a @click="active" class="selected:visibility == 'active'">Active</a></li>
+		<li><a @click="completedo" class="selected:visibility == 'completed'">Completed</a></li>
+	</ul>
+	<button class="clear-completed" @click="removeCompleted" v-show="todos.length>remaining">Clear
+	</button>
+</footer>
+</section>
+<!-- /**
+ * 下部功能 显示信息部分
+ */ -->
+<div>
+	<footer class="info">
+		<p>双击编辑事项</p>
+		<p>作者：晁兰飞</p>
+	</footer>
+</div>
+</mg-page>

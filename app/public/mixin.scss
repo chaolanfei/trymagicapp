@@ -1,0 +1,2985 @@
+/*====================================================
+ * 全局底层函数方法变量配置
+ *====================================================*/
+
+// 1 表示编译为 REM 单位
+$build-rem:						true !default;
+// 默认基本字体单位
+$build-rem-base:				20px !default;
+
+
+
+/*====================================================
+ * Px 转换 Rem 工具方法，$base 默认采取系统设置值
+ *====================================================*/
+@function rem($px, $base: $build-rem-base) {
+	@if $build-rem == true {
+		@return ($px / $base) * 1rem;
+	} @else {
+		@return $px;
+	}
+}
+
+
+// icon 图标基本属性
+@mixin icon-base {
+	font-family: $font-family-icon;
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+}
+// ========================================================
+// 全局默认组件层级
+// ========================================================
+
+
+
+$z-index-bar-title:               0 !default;
+$z-index-item-drag:               0 !default;
+$z-index-item-edit:               0 !default;
+$z-index-menu:                    0 !default;
+$z-index-badge:                   1 !default;
+$z-index-bar-button:              1 !default;
+$z-index-item-options:            1 !default;
+$z-index-pane:                    1 !default;
+$z-index-slider-pager:            1 !default;
+$z-index-view:                    1 !default;
+$z-index-item:                    2 !default;
+$z-index-item-checkbox:           3 !default;
+$z-index-item-radio:              3 !default;
+$z-index-item-reorder:            3 !default;
+$z-index-item-toggle:             3 !default;
+$z-index-tabs:                    5 !default;
+$z-index-item-reordering:         9 !default;
+$z-index-bar:                     10 !default;
+$z-index-menu-scroll-content:     10 !default;
+$z-index-modal:                   10 !default;
+$z-index-popover:                 10 !default;
+$z-index-action-sheet:            11 !default;
+$z-index-backdrop:                11 !default;
+$z-index-menu-bar-header:         11 !default;
+$z-index-scroll-content-false:    11 !default;
+$z-index-popup:                   12 !default;
+$z-index-loading:                 13 !default;
+$z-index-scroll-bar:              99 !default;
+$z-index-click-block:             999 !default;
+// ========================================================
+// 全局默认颜色值
+// ========================================================
+
+ 
+
+$color-light:                           #fff !default;
+$color-stable:                          #f8f8f8 !default;
+$color-positive:                        #4a87ee !default;
+$color-calm:                            #43cee6 !default;
+$color-balanced:                        #66cc33 !default;
+$color-energized:                       #f0b840 !default;
+$color-assertive:                       #ef4e3a !default;
+$color-royal:                           #8a6de9 !default;
+$color-dark:                            #444 !default;
+
+$color-orange:                          #F9711F !default;
+// 页面基本属性设置
+
+$font-family-icon:                "Ionicons";
+$font-family-sans-serif:          "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif !default;
+$font-family-light-sans-serif:    "Helvetica Neue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif !default;
+$font-family-serif:               Georgia, "Times New Roman", Times, serif !default;
+$font-family-monospace:           Monaco, Menlo, Consolas, "Courier New", monospace !default;
+
+$font-family-base:                $font-family-sans-serif !default;
+$font-size-base:                  14px !default;
+$font-size-large:                 18px !default;
+$font-size-small:                 11px !default;
+
+$padding-base-vertical:           6px !default;
+$padding-base-horizontal:         12px !default;
+
+$padding-item-inset:			  12px !default;
+
+$padding-large-vertical:          10px !default;
+$padding-large-horizontal:        16px !default;
+
+$padding-small-vertical:          5px !default;
+$padding-small-horizontal:        10px !default;
+
+$line-height-base:                1.428571429 !default; // 20/14
+$line-height-computed:            floor($font-size-base * $line-height-base) !default; // ~20px
+$line-height-default:             $padding-item-inset*2 + $line-height-computed !default;
+$line-height-large:               1.33 !default;
+$line-height-small:               1.5 !default;
+
+$headings-font-family:            $font-family-base !default;
+$headings-font-weight:            500 !default;
+$headings-line-height:            1.2 !default;
+
+$base-background-color:           #fff !default;
+$base-color:                      #000 !default;
+
+$link-color:                      $color-positive !default;
+$link-hover-color:                darken($link-color, 15%) !default;
+
+$block-header:                    44px !default;
+$block-footer:                    49px !default;
+
+$border-default-color:            #b2b2b2 !default;
+$border-default-width:             1px !default;
+
+$border-radius-base:              4px !default;
+$border-radius-large:             6px !default;
+$border-radius-small:             3px !default;
+
+$margin-base:                     20px !default;
+$active-opacity:                    .3 !default;
+
+// ========================================================
+// 按钮默认样式变量
+// ========================================================
+
+
+$button-link-text:				  $color-stable !default;
+$button-clear-padding:            6px !default;
+$button-icon-padding:             0.3em !default;
+$button-border-radius:            2px !default;
+$button-border-width:             1px !default;
+$button-active-opacity:			  $active-opacity !default;
+$button-disable-opacity:		  0.4 !default;				
+$button-clear-active:			  0.3 !default;
+
+$button-font-size:                16px !default;
+$button-height:                   32px !default;
+$button-padding:                  10px !default;
+$button-icon-size:                18px !default;
+
+$button-block-margin:             10px !default;
+$button-block-height:			  40px !default;
+
+$button-large-font-size:          24px !default;
+$button-large-height:             54px !default;
+$button-large-padding:            16px !default;
+$button-large-icon-size:          32px !default;
+
+$button-small-font-size:          12px !default;
+$button-small-height:             24px !default;
+$button-small-padding:            6px !default;
+$button-small-icon-size:          14px !default;
+
+
+$button-stable-bg:                $color-stable !default;
+$button-stable-text:              #444 !default;
+$button-stable-border:            #b2b2b2 !default;
+$button-stable-active-bg:         #e5e5e5 !default;
+$button-stable-active-border:     #a2a2a2 !default;
+
+$button-positive-bg:              $color-positive !default;
+$button-positive-text:            #fff !default;
+$button-positive-border:          darken($color-positive, 15%) !default;
+$button-positive-active-bg:       darken($color-positive, 15%) !default;
+$button-positive-active-border:   darken($color-positive, 15%) !default;
+
+$button-energized-bg:             $color-energized !default;
+$button-energized-text:           #fff !default;
+$button-energized-border:         darken($color-energized, 5%) !default;
+$button-energized-active-bg:      darken($color-energized, 5%) !default;
+$button-energized-active-border:  darken($color-energized, 5%) !default;
+
+$button-assertive-bg:             $color-assertive !default;
+$button-assertive-text:           #fff !default;
+$button-assertive-border:         darken($color-assertive, 10%) !default;
+$button-assertive-active-bg:      darken($color-assertive, 10%) !default;
+$button-assertive-active-border:  darken($color-assertive, 10%) !default;
+
+$button-default-bg:               $button-stable-bg !default;
+$button-default-text:             $button-stable-text !default;
+$button-default-border:           $button-stable-border !default;
+$button-default-active-bg:        $button-stable-active-bg !default;
+$button-default-active-border:    $button-stable-active-border !default;
+
+
+// ========================================================
+// bar 工具栏默认变量
+// ========================================================
+
+
+$bar-height:                      $block-header !default;
+$bar-foot-height:                 $block-footer !default;
+$bar-foot-plus:                   $bar-foot-height - $bar-height !default;
+
+$bar-title-font-size:             16px !default;
+$bar-padding-left: 			 	  35px !default;
+$bar-padding-portrait:            5px !default;
+$bar-padding-landscape:           5px !default;
+$bar-inline-height:               $bar-height - $bar-padding-portrait*2 !default;   
+$bar-transparency:                1 !default;
+
+$bar-default-bg:                  rgba($color-light, $bar-transparency) !default;
+$bar-default-text:                #444 !default;
+$bar-default-border:              #ddd !default;
+$bar-default-active-bg:           #fafafa !default;
+$bar-default-active-border:       #ccc !default;
+
+$bar-stable-bg:                   rgba($color-stable, $bar-transparency) !default;
+$bar-stable-text:                 #444 !default;
+$bar-stable-border:               #b2b2b2 !default;
+$bar-stable-active-bg:            #e5e5e5 !default;
+$bar-stable-active-border:        #a2a2a2 !default;
+
+$bar-positive-bg:                 rgba($color-positive, $bar-transparency) !default;
+$bar-positive-text:               #fff !default;
+$bar-positive-border:             darken($color-positive, 15%) !default;
+$bar-positive-active-bg:          darken($color-positive, 15%) !default;
+$bar-positive-active-border:      darken($color-positive, 15%) !default;
+
+$bar-button-height:               32px !default;
+$bar-button-foot-height:          $bar-button-height + $bar-foot-plus !default;
+$bar-button-padding:              8px !default;
+$bar-button-icon-size:            20px !default;
+$bar-button-icon-clear-size:      24px !default;
+// ========================================================
+// confirm 组件变量
+// ========================================================
+
+
+$confirm-default-padding:				$padding-item-inset !default;
+$confirm-default-radius:				$border-radius-base !default;
+$confirm-default-border:				$border-default-color !default;
+// ========================================================
+// 内容区默认样式变量
+// ========================================================
+
+$content-padding:                     10px !default;
+$content-back-color:  				  #ffffff !default;
+
+$content-head-size:                   $block-header !default;
+$content-foot-size:                   $block-footer !default;
+$dropmenu-padding:                   $padding-item-inset !default;
+$dropmenu-height:                    40px !default;
+$dropmenu-active-bg:                 #DDDDDD !default;
+$dropmenu-border:                    $border-default-color !default;
+$dropmenu-border-radius:             $border-radius-base !default;
+
+$flex-grid-default:				16 !default;
+$flex-grid-gap:					$margin-base/2 !default;
+
+// ========================================================
+// 表单元素 默认样式变量
+// ========================================================
+
+$input-inline-size:				    2em !default;
+$input-inline-fix:				  0.2em !default;
+$input-inline-disabled:			  #e4e4e4 !default;
+
+$input-check-width:				  $input-inline-size * 0.3 !default;
+$input-check-height:			  $input-inline-size * 0.6 !default;
+$input-check-radius:			  $input-inline-size * 0.15 !default;
+$input-check-top:				  $input-inline-size * 0.1 !default;
+$input-check-top-circle:          $input-inline-size * 0.13 !default;
+$input-check-left:				  $input-inline-size * 0.35 !default;
+$input-check-left-circle:         $input-inline-size * 0.33 !default;
+$input-check-border-base:         $input-inline-size * 0.075 !default;
+$input-check-border-check:		  $input-inline-size * 0.1 !default;
+
+$input-switch-padding:            3px !default;
+$input-switch-width: 			  $input-inline-size * 1.65 !default;
+$input-switch-height:			  $input-inline-size !default;
+$input-switch-border:			  $input-inline-size * 0.13 !default;
+$input-switch-back:				  $color-positive !default;
+$input-switch-uncheck:			  #ddd !default;
+$input-switch-center:  		      #fff !default;
+$input-switch-move:               $input-switch-width - $input-switch-height;
+
+$input-radio-size:				  $input-inline-size * 0.35 !default;
+
+$input-shadow-vpos:				   2px !default;
+$input-shadow-blur:			       7px !default;
+$input-shadow-base:				   1px !default;
+$input-shadow-opacity:			  0.35 !default;
+
+
+$input-height-base:               $line-height-computed + ($padding-base-vertical * 2) !default;
+$input-height-large:              (floor($font-size-large * $line-height-large) + ($padding-large-vertical * 2)) !default;
+$input-height-small:              (floor($font-size-small * $line-height-small) + ($padding-small-vertical * 2)) !default;
+
+$input-bg:                        $color-light !default;
+$input-bg-disabled:               $color-stable !default;
+
+$input-color:                     #111 !default;
+$input-border-color:              $border-default-color !default;
+$input-border-width:              $border-default-width !default;
+$input-label-color:               $color-dark !default;
+$input-color-placeholder:         lighten($color-dark, 40%) !default;
+
+// icon-font 相关变量
+
+
+
+$icon-font-checkbox-empty:			  "\f372" !default;
+$icon-font-checkbox-select:			  "\f373" !default;
+
+$icon-font-radio-empty:				  "\f3a6" !default;
+$icon-font-radio-select:			  "\f3a7" !default;
+
+$icon-font-close:					  "\f129" !default;
+// ========================================================
+// 列表默认样式变量
+// ========================================================
+
+
+$list-border-radius:              		$border-radius-base !default;
+$list-margin-bottom:			  		$margin-base !default;
+
+$list-item-font-size:                  	$font-size-base !default;
+$list-item-border-width:               	$border-default-width !default;
+$list-item-padding:                    	$padding-item-inset !default;
+
+$list-item-default-bg:                 	$base-background-color !default;
+$list-item-default-border:             	$border-default-color !default;
+$list-item-default-text:              	$color-dark !default;
+$list-item-default-active-bg:          	#D9D9D9 !default;
+
+$list-item-line-height:                 $line-height-computed !default;
+$list-item-height:                      $list-item-padding*2 + $list-item-line-height !default;
+
+$list-item-avatar:                     	$list-item-line-height*2.6 !default;
+$list-item-avatar-fix:                  3px !default;
+$list-item-avatar-large:               	$list-item-line-height*3.3 !default;
+
+$list-item-inset-top-padding:           6px !default;
+$list-item-inset-left-padding:         	96px !default;
+
+$list-item-button-font-size:           	12px !default;
+$list-item-button-height:              	30px !default;
+$list-item-button-padding:			  	$button-padding/2 !default;
+
+$list-item-icon-color:				  	$list-item-default-text !default;
+$list-item-icon-font-size:             	18px !default;
+$list-item-icon-padding:               	$list-item-padding * 3 !default;
+$list-item-icon-fix:					2px !default;
+
+$list-item-icon-label-padding:          $list-item-inset-left-padding + $list-item-padding * 2 !default;
+$list-item-icon-label-left:             $list-item-icon-padding;
+
+$list-item-icon-right-color:			$list-item-default-text !default;
+$list-item-icon-right-font-size:       	$button-icon-size !default;
+$list-item-icon-right-padding:         	$list-item-padding + $list-item-icon-right-font-size + 5px !default;
+
+$list-item-label-right-padding:			$list-item-icon-font-size - 4px !default;
+
+// ========================================================
+// popup 弹出窗默认变量
+// ========================================================
+
+
+$popup-radius: 							13px !default;
+$popup-padding:							16px !default;
+$popup-font-large:						16px !default;
+
+$popup-back-blur:						10px !default;
+$popup-back-color:						rgba(0, 0, 0, .55) !default;
+
+$popup-wrapper-width:					80% !default;
+$popup-wrapper-max:						80% !default;
+$popup-wrapper-back:					#f8f8f8 !default;
+
+$popup-body-line-height:				22px !default;
+
+$popup-buttons-height:					44px !default;
+$popup-buttons-active-bg:				$button-stable-active-bg !default;
+$content-pull-back:                   #423f47 !default;
+$content-pull-height:                 54px !default;
+// ========================================================
+// slider 默认样式变量
+// ========================================================
+
+
+
+$slider-font-size:   				$font-size-base !default;
+$slider-points-height:  			32px !default;
+$slider-points-size:				10px !default;
+$slider-points-margin: 				6px !default;
+$slider-points-opacity: 			.5 !default;
+$slider-points-active: 				#fff !default;
+// ========================================================
+// tab UI默认变量
+// ========================================================
+
+
+$tabs-height:                     $block-footer !default;
+$tabs-padding:                     2px !default;
+$tabs-text-font-size:             14px !default;
+$tabs-text-font-size-side-icon:   12px !default;
+
+$tabs-icon-size:                  28px !default;
+$tabs-icon-size-only:             28px !default;
+
+$tabs-striped-height:              3px !default;
+$tabs-striped-width:               70% !default;
+
+$tabs-default-bg:                 #fff !default;
+$tabs-default-border:             $button-stable-border !default;
+$tabs-default-text:               $button-stable-text !default;
+$tabs-default-active:			  $button-stable-text !default;
+$tabs-default-striped:			  $button-default-active-border !default;
+
+$tabs-stable-bg:                  $button-stable-bg !default;
+$tabs-stable-border:              $button-stable-border !default;
+$tabs-stable-text:                $button-stable-text !default;
+$tabs-stable-active:			  $button-stable-active-border !default;
+$tabs-stable-striped:			  $button-stable-active-border !default;
+
+$tabs-positive-bg:                $button-positive-bg !default;
+$tabs-positive-border:            $button-positive-border !default;
+$tabs-positive-text:              rgba($button-positive-text, 0.4) !default;
+$tabs-positive-active:			  $button-positive-text !default;
+$tabs-positive-striped:			  $button-positive-active-border !default;
+
+// ========================================================
+// text 组件样式
+// ========================================================
+
+$text-color-default:					#353535 !default;
+$text-color-energized:					#e85920 !default;
+
+$text-size-default:						$font-size-base !default;
+$text-size-small:						12px !default;
+$text-size-normal:						$font-size-base !default;
+$text-size-large:						16px !default;
+
+
+$text-mark-font:						$text-size-small !default;
+$text-mark-color:						#828282 !default;
+
+$text-money-color:						#e85920 !default;
+$text-money-family:						"verdana" !default;						
+
+$timer-base-margin:               10px !default;
+$timer-item-height:               44px !default;
+
+$timer-actions-margin:            10px !default;
+$timer-button-padding:            12px !default;
+$timer-button-margin:             6px !default;
+
+$tip-border-radius:             $border-radius-base !default;
+$tip-padding-vertical:          $padding-large-vertical !default;
+$tip-padding-horizontal:        $padding-large-horizontal !default;
+
+$tip-back-color:                rgba(0, 0, 0, 0.7) !default;
+$tip-text-color:                #fff !default;
+$tip-icon-size:                 68px !default;
+
+$tip-svg-loading:               "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nMTAwJScgaGVpZ2h0PScxMDAlJyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICAgIDxyZWN0ICB4PSc0Ni41JyB5PSc0MCcgd2lkdGg9JzcnIGhlaWdodD0nMjAnIHJ4PSczJyByeT0nMycgZmlsbD0nI2ZmZicgdHJhbnNmb3JtPSdyb3RhdGUoMCA1MCA1MCkgdHJhbnNsYXRlKDAgLTI4KSc+ICA8YW5pbWF0ZSBhdHRyaWJ1dGVOYW1lPSdvcGFjaXR5JyBmcm9tPScxJyB0bz0nMCcgZHVyPScxcycgYmVnaW49JzBzJyByZXBlYXRDb3VudD0naW5kZWZpbml0ZScvPjwvcmVjdD4KICAgIDxyZWN0ICB4PSc0Ni41JyB5PSc0MCcgd2lkdGg9JzcnIGhlaWdodD0nMjAnIHJ4PSczJyByeT0nMycgZmlsbD0nI2ZmZicgdHJhbnNmb3JtPSdyb3RhdGUoNDAgNTAgNTApIHRyYW5zbGF0ZSgwIC0yOCknPiAgPGFuaW1hdGUgYXR0cmlidXRlTmFtZT0nb3BhY2l0eScgZnJvbT0nMScgdG89JzAnIGR1cj0nMXMnIGJlZ2luPScwLjFzJyByZXBlYXRDb3VudD0naW5kZWZpbml0ZScvPjwvcmVjdD4KICAgIDxyZWN0ICB4PSc0Ni41JyB5PSc0MCcgd2lkdGg9JzcnIGhlaWdodD0nMjAnIHJ4PSczJyByeT0nMycgZmlsbD0nI2ZmZicgdHJhbnNmb3JtPSdyb3RhdGUoODAgNTAgNTApIHRyYW5zbGF0ZSgwIC0yOCknPiAgPGFuaW1hdGUgYXR0cmlidXRlTmFtZT0nb3BhY2l0eScgZnJvbT0nMScgdG89JzAnIGR1cj0nMXMnIGJlZ2luPScwLjJzJyByZXBlYXRDb3VudD0naW5kZWZpbml0ZScvPjwvcmVjdD4KICAgIDxyZWN0ICB4PSc0Ni41JyB5PSc0MCcgd2lkdGg9JzcnIGhlaWdodD0nMjAnIHJ4PSczJyByeT0nMycgZmlsbD0nI2ZmZicgdHJhbnNmb3JtPSdyb3RhdGUoMTIwIDUwIDUwKSB0cmFuc2xhdGUoMCAtMjgpJz4gIDxhbmltYXRlIGF0dHJpYnV0ZU5hbWU9J29wYWNpdHknIGZyb209JzEnIHRvPScwJyBkdXI9JzFzJyBiZWdpbj0nMC4zcycgcmVwZWF0Q291bnQ9J2luZGVmaW5pdGUnLz48L3JlY3Q+CiAgICA8cmVjdCAgeD0nNDYuNScgeT0nNDAnIHdpZHRoPSc3JyBoZWlnaHQ9JzIwJyByeD0nMycgcnk9JzMnIGZpbGw9JyNmZmYnIHRyYW5zZm9ybT0ncm90YXRlKDE2MCA1MCA1MCkgdHJhbnNsYXRlKDAgLTI4KSc+ICA8YW5pbWF0ZSBhdHRyaWJ1dGVOYW1lPSdvcGFjaXR5JyBmcm9tPScxJyB0bz0nMCcgZHVyPScxcycgYmVnaW49JzAuNHMnIHJlcGVhdENvdW50PSdpbmRlZmluaXRlJy8+PC9yZWN0PgogICAgPHJlY3QgIHg9JzQ2LjUnIHk9JzQwJyB3aWR0aD0nNycgaGVpZ2h0PScyMCcgcng9JzMnIHJ5PSczJyBmaWxsPScjZmZmJyB0cmFuc2Zvcm09J3JvdGF0ZSgyMDAgNTAgNTApIHRyYW5zbGF0ZSgwIC0yOCknPiAgPGFuaW1hdGUgYXR0cmlidXRlTmFtZT0nb3BhY2l0eScgZnJvbT0nMScgdG89JzAnIGR1cj0nMXMnIGJlZ2luPScwLjVzJyByZXBlYXRDb3VudD0naW5kZWZpbml0ZScvPjwvcmVjdD4KICAgIDxyZWN0ICB4PSc0Ni41JyB5PSc0MCcgd2lkdGg9JzcnIGhlaWdodD0nMjAnIHJ4PSczJyByeT0nMycgZmlsbD0nI2ZmZicgdHJhbnNmb3JtPSdyb3RhdGUoMjQwIDUwIDUwKSB0cmFuc2xhdGUoMCAtMjgpJz4gIDxhbmltYXRlIGF0dHJpYnV0ZU5hbWU9J29wYWNpdHknIGZyb209JzEnIHRvPScwJyBkdXI9JzFzJyBiZWdpbj0nMC42cycgcmVwZWF0Q291bnQ9J2luZGVmaW5pdGUnLz48L3JlY3Q+CiAgICA8cmVjdCAgeD0nNDYuNScgeT0nNDAnIHdpZHRoPSc3JyBoZWlnaHQ9JzIwJyByeD0nMycgcnk9JzMnIGZpbGw9JyNmZmYnIHRyYW5zZm9ybT0ncm90YXRlKDI4MCA1MCA1MCkgdHJhbnNsYXRlKDAgLTI4KSc+ICA8YW5pbWF0ZSBhdHRyaWJ1dGVOYW1lPSdvcGFjaXR5JyBmcm9tPScxJyB0bz0nMCcgZHVyPScxcycgYmVnaW49JzAuN3MnIHJlcGVhdENvdW50PSdpbmRlZmluaXRlJy8+PC9yZWN0PgogICAgPHJlY3QgIHg9JzQ2LjUnIHk9JzQwJyB3aWR0aD0nNycgaGVpZ2h0PScyMCcgcng9JzMnIHJ5PSczJyBmaWxsPScjZmZmJyB0cmFuc2Zvcm09J3JvdGF0ZSgzMjAgNTAgNTApIHRyYW5zbGF0ZSgwIC0yOCknPiAgPGFuaW1hdGUgYXR0cmlidXRlTmFtZT0nb3BhY2l0eScgZnJvbT0nMScgdG89JzAnIGR1cj0nMXMnIGJlZ2luPScwLjhzJyByZXBlYXRDb3VudD0naW5kZWZpbml0ZScvPjwvcmVjdD4KPC9zdmc+" !default;
+
+$tip-svg-success:               "data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDYxMiA3OTIiPgogICAgPHBhdGggZmlsbD0iI2ZmZiIgZD0iTTguMyw0MDkuOEM5LDQyMywxOTIuMyw2MDIsMTkyLjMsNjAyYzkuMyw5LjcsMjQuMyw5LjcsMzMuNSwwYzAsMCwzNTQuOS0zNzAuOCwzODQuNy00MDIKCWM4LjYtMzAuOC0yMS0zMy4zLTI4LjYtMjkuOWMtNi4xLDMuMy0zNjcuNCwzMjEuMy0zNjcuNCwzMjEuM2MtMTAuMSw4LjgtMjYuNSw4LjgtMzYuNSwwLjJMNDIuMSwzNzQuNQoJQzE4LjQsMzc2LjcsNy42LDM5Ni41LDguMyw0MDkuOHoiLz4KPC9zdmc+Cg==" !default;
+
+$tip-svg-error:                 "data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iLTI5NyAzODkuMyAxNi4yIDE1LjciPgoJPHBhdGggZmlsbD0iI2ZmZiIgZD0iTS0yODQuMSw0MDIuOGwtMTAuNS0xMC41Yy0wLjItMC4yLTAuMi0wLjUsMC0wLjhsMCwwYzAuMi0wLjIsMC41LTAuMiwwLjgsMGwxMC41LDEwLjVjMC4yLDAuMiwwLjIsMC41LDAsMC44bDAsMEMtMjgzLjUsNDAyLjktMjgzLjksNDAyLjktMjg0LjEsNDAyLjh6Ii8+Cgk8cGF0aCBmaWxsPSIjZmZmIiBkPSJNLTI5NC41LDQwMmwxMC41LTEwLjVjMC4yLTAuMiwwLjUtMC4yLDAuOCwwbDAsMGMwLjIsMC4yLDAuMiwwLjUsMCwwLjhsLTEwLjUsMTAuNWMtMC4yLDAuMi0wLjUsMC4yLTAuOCwwbDAsMEMtMjk0LjcsNDAyLjYtMjk0LjcsNDAyLjMtMjk0LjUsNDAyeiIvPgo8L3N2Zz4=" !default;
+
+$view-wrapper-animate-time:                 0.6s;
+$view-page-show-time:                       0.4s;
+$view-loader-hide-time:                     0.4s;
+
+// 动画库，代码来自 https://github.com/daneden/animate.css
+
+
+@mixin animate($name, $time: 1s, $mode: infinite) {
+    animation-name: $name;
+    animation-duration: $time;
+
+    animation-fill-mode: $mode;
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    @keyframes fadeOut {
+        from {
+            opacity: 1;
+        }
+
+        to {
+            opacity: 0;
+        }
+    }
+
+    @keyframes zoomIn {
+        from {
+            transform: scale3d(.3, .3, .3);
+
+            opacity: 0;
+        }
+
+        50% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes zoomOut {
+        from {
+            opacity: 1;
+        }
+
+        50% {
+            transform: scale3d(.3, .3, .3);
+
+            opacity: 0;
+        }
+
+        to {
+            opacity: 0;
+        }
+    }
+
+
+    @keyframes slideInRight {
+        from {
+            visibility: visible;
+
+            transform: translate3d(100%, 0, 0);
+        }
+
+        to {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+    @keyframes slideOutRight {
+        from {
+            transform: translate3d(0, 0, 0);
+        }
+
+        to {
+            visibility: hidden;
+            transform: translate3d(100%, 0, 0);
+        }
+    }
+
+    @keyframes slideInLeft {
+        from {
+            visibility: visible;
+
+            transform: translate3d(-100%, 0, 0);
+        }
+
+        to {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+    @keyframes slideOutLeft {
+        from {
+            transform: translate3d(0, 0, 0);
+        }
+
+        to {
+            visibility: hidden;
+            transform: translate3d(-100%, 0, 0);
+        }
+    }
+}
+
+// ========================================================
+// 常用工具样式
+// ========================================================
+
+
+// 文字超过指定行。。。显示
+@mixin text-ellipsis($line: 1) {
+	// $line: number
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+
+	@if $line > 1 {
+        white-space: normal;
+		display: -webkit-box;
+		-webkit-line-clamp: $line;
+  		-webkit-box-orient: vertical;
+	}
+}
+
+// 文字两端对齐
+@mixin text-justify() {
+    text-align: justify;
+    text-align-last: justify;
+}
+
+@mixin disabled($opacity: 0.4) {
+    cursor: default !important;
+    pointer-events: none;
+    opacity: $opacity;
+}
+
+
+// 文字对齐方式
+@mixin text-align($dir) {
+	// $dir: left | right | center | justify
+	text-align: $dir !important;
+}
+
+
+
+/*====================================================
+ * retina-border 视网膜屏下 border 生成代码
+ *====================================================*/
+$retina-pixel-ratio: 2 !default; // 缩放系数
+
+// 设置 retain 屏幕下的 边框颜色
+@mixin retina-border-color($color, $type: all, $after: false) {
+    $inset: before; @if $after == true { $inset: after; }
+
+    @each $pos in $type {
+        @if $pos == all {
+            @if $build-rem == true {
+                border-color: $color;
+            } @else {
+                &:#{$inset} {
+                    border-color: $color;
+                }
+            }
+        }@else {
+            @if $build-rem == true {
+                border-#{$pos}-color: $color;
+            } @else {
+                &:#{$inset} {
+                    border-#{$pos}-color: $color;
+                }
+            }
+        }
+    }
+}
+
+// 设置 retina 屏幕下的 边框大小
+@mixin retina-border-width($type, $size: 1px, $after: false) {
+    $inset: before; @if $after == true { $inset: after; }
+
+    @each $pos in $type {
+        @if $pos == all {
+            @if $build-rem == true {
+                border-width: $size;
+            } @else {
+                &:#{$inset} {
+                    border-width: $size;
+                }
+            }
+        }@else {
+            @if $build-rem == true {
+                border-#{$pos}-width: $size;
+            } @else {
+                &:#{$inset} {
+                    border-#{$pos}-width: $size;
+                }
+            }
+        }
+    }
+}
+
+// 设置 retina 屏幕下 边框圆角
+@mixin retina-border-radius($size: 1px, $type: all, $after: false) {
+    $inset: before; @if $after == true { $inset: after; }
+
+    @each $pos in $type {
+        @if $pos == all {
+            border-radius: $size;
+
+            @if $build-rem != 1 {
+                &:#{$inset} {
+                    border-radius: $size;
+
+                    @media (-webkit-min-device-pixel-ratio: $retina-pixel-ratio),
+                    (min-device-pixel-ratio: $retina-pixel-ratio) {
+                        border-radius: $size*2;
+                    }
+                }
+            }
+        }@else {
+            border-radius: $size;
+
+            @if $build-rem != 1 {
+                &:#{$inset} {
+                    border-#{$pos}-radius: $size;
+
+                    @media (-webkit-min-device-pixel-ratio: $retina-pixel-ratio),
+                    (min-device-pixel-ratio: $retina-pixel-ratio) {
+                        border-#{$pos}-radius: $size*2;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// retina 屏幕下 视网膜屏幕边框 核心代码
+@mixin retina-border-content($color, $radio: $retina-pixel-ratio) {
+    @if $build-rem == true {
+        border-color: $color;
+        border-style: solid;
+    } @else {
+        z-index: 1;
+        content: " ";
+        position: absolute;
+        border-style: solid;
+        border-color: $color;
+        border-width: 0;
+        width: 100%;
+        height: 100%;
+        left: 0; top: 0;
+        pointer-events: none;
+
+        @media (-webkit-min-device-pixel-ratio: $radio),
+                (min-device-pixel-ratio: $radio) {
+
+            left: -50%; top: -50%;
+            width: 200%; height: 200%;
+            transform: scale(.5, .5);
+        }
+    }
+}
+
+// 修复 retina 屏幕下 border 变宽的问题
+@mixin retina-border($type: all, $color: $border-default-color, $after: false) {
+	// $type: top | bottom
+	// $color: color
+    // $after: true | false  插入元素的伪类名
+
+    $inset: before; @if $after == true { $inset: after; }//
+
+    @include retina-border-content($color, $retina-pixel-ratio);
+
+    @if $build-rem == true {
+        @each $pos in $type {
+            @if $pos == all {
+                border-width: 1px;
+            }@else {
+                border-#{$pos}-width: 1px;
+            }
+        }
+    } @else {
+        &:#{$inset} {
+            @each $pos in $type {
+                @if $pos == all {
+                    border-width: 1px;
+                }@else {
+                    border-#{$pos}-width: 1px;
+                }
+            }
+        }
+    }
+}
+
+/*====================================================
+ *  media 屏幕尺寸自适应
+ *====================================================*/
+@mixin media-width($min: null, $max: null) {
+    @if $min != null and $max != null {
+        @media screen and (-webkit-min-device-pixel-ratio: 1)
+            and (min-width: $min) and (max-width: $max),
+        screen and (min-device-pixel-ratio: 1) and (min-width: $min)
+            and (max-width: $max),
+
+        screen and (-webkit-min-device-pixel-ratio: 2)
+            and (min-width: $min * 2) and (max-width: $max * 2),
+        screen and (min-device-pixel-ratio: 2) and (min-width: $min * 2)
+            and (max-width: $max * 2) {
+            @content;
+        }
+    } @else if $min != null and $max == null {
+        @media screen and (-webkit-min-device-pixel-ratio: 1)
+            and (min-width: $min),
+        screen and (min-device-pixel-ratio: 1) and (min-width: $min),
+
+        screen and (-webkit-min-device-pixel-ratio: 2)
+            and (min-width: $min * 2),
+        screen and (min-device-pixel-ratio: 2) and (min-width: $min * 2) {
+            @content;
+        }
+    } @else if $max !=null and $min == null {
+        @media screen and (-webkit-min-device-pixel-ratio: 1)
+            and (max-width: $max),
+        screen and (min-device-pixel-ratio: 1) and (max-width: $max),
+
+        screen and (-webkit-min-device-pixel-ratio: 2)
+            and (max-width: $max * 2),
+        screen and (min-device-pixel-ratio: 2) and (max-width: $max * 2) {
+            @content;
+        }
+    }
+}
+
+// css3 居中
+@mixin vertical-align-center() {
+    top: 50%;
+    transform: translateY(-50%);
+    transform-style: preserve-3d;
+}
+
+// css3 上下左右绝对居中
+@mixin absolute-align-center() {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transform-style: preserve-3d;
+}
+
+
+// Flex布局相关属性设置
+@mixin flex-align-center() {
+    justify-content: space-around;
+    align-items: center;
+}
+
+// 修复 flex 子对象不是 100% 高度
+@mixin flex-full-height() {
+    display: flex;
+    flex-direction: column;
+}
+
+// ========================================================
+// 样式重置
+// ========================================================
+
+
+@mixin reset() {
+
+    html, body, div, span, applet, object, iframe,
+    h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+    a, abbr, acronym, address, big, cite, code,
+    del, dfn, em, img, ins, kbd, q, s, samp,
+    small, strike, strong, sub, sup, tt, var,
+    b, i, u, center,
+    dl, dt, dd, ol, ul, li,
+    fieldset, form, label, legend,
+    table, caption, tbody, tfoot, thead, tr, th, td,
+    article, aside, canvas, details, embed, fieldset,
+    figure, figcaption, footer, header, hgroup,
+    menu, nav, output, ruby, section, summary,
+    time, mark, audio, video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        vertical-align: baseline;
+        font: inherit;
+        font-size: 100%;
+    }
+
+    ol, ul {
+        list-style: none;
+    }
+    blockquote, q {
+        quotes: none;
+    }
+    blockquote:before, blockquote:after,
+    q:before, q:after {
+        content: '';
+        content: none;
+    }
+
+    /**
+     * Prevent modern browsers from displaying `audio` without controls.
+     * Remove excess height in iOS 5 devices.
+     */
+
+    audio:not([controls]) {
+        display: none;
+        height: 0;
+    }
+
+    /**
+     * Hide the `template` element in IE, Safari, and Firefox < 22.
+     */
+
+    [hidden],
+    template {
+        display: none;
+    }
+
+    script {
+        display: none !important;
+    }
+
+    /* ==========================================================================
+       Base
+       ========================================================================== */
+
+    /* 1. Set default font family to sans-serif. */
+
+    html {
+        font-family: sans-serif; /* 1 */
+        text-size-adjust: none;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        font-size: 14px;
+        line-height: 1;
+    }
+
+    *, *:before, *:after {
+        box-sizing: border-box;
+        -webkit-tap-highlight-color: rgba(255,255,255,0);
+    }
+
+    a,
+    button,
+    :focus,
+    a:focus,
+    button:focus,
+    a:active,
+    a:hover {
+        outline: 0;
+    }
+
+    a {
+        -webkit-user-drag: none;
+
+        color: inherit;
+        text-decoration: none;
+
+        &[href]:hover {
+            cursor: pointer;
+        }
+    }
+
+    b,
+    strong {
+        font-weight: bold;
+    }
+
+    dfn {
+        font-style: italic;
+    }
+
+    hr {
+        height: 0;
+
+        box-sizing: content-box;
+    }
+
+
+    /**
+     * Correct font family set oddly in Safari 5 and Chrome.
+     */
+
+    code,
+    kbd,
+    pre,
+    samp {
+        font-size: 1em;
+        font-family: monospace, serif;
+    }
+
+    /**
+     * Improve readability of pre-formatted text in all browsers.
+     */
+
+    pre {
+        white-space: pre-wrap;
+    }
+
+    /**
+     * Set consistent quote types.
+     */
+
+    q {
+        quotes: "\201C" "\201D" "\2018" "\2019";
+    }
+
+    /**
+     * Address inconsistent and variable font size in all browsers.
+     */
+
+    small {
+        font-size: 80%;
+    }
+
+    /**
+     * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+     */
+
+    sub,
+    sup {
+        position: relative;
+        vertical-align: baseline;
+        font-size: 75%;
+        line-height: 0;
+    }
+
+    sup {
+        top: -0.5em;
+    }
+
+    sub {
+        bottom: -0.25em;
+    }
+
+    /**
+     * Define consistent border, margin, and padding.
+     */
+
+    fieldset {
+        margin: 0 2px;
+        padding: 0.35em 0.625em 0.75em;
+        border: 1px solid #c0c0c0;
+    }
+
+    /**
+     * 1. Correct `color` not being inherited in IE 8/9.
+     * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+     */
+
+    legend {
+        padding: 0; /* 2 */
+        border: 0; /* 1 */
+    }
+
+    /**
+     * 1. Correct font family not being inherited in all browsers.
+     * 2. Correct font size not being inherited in all browsers.
+     * 3. Address margins set differently in Firefox 4+, Safari 5, and Chrome.
+     * 4. Remove any default :focus styles
+     * 5. Make sure webkit font smoothing is being inherited
+     * 6. Remove default gradient in Android Firefox / FirefoxOS
+     */
+
+    button,
+    input,
+    select,
+    textarea {
+        margin: 0; /* 3 */
+        font-size: 100%; /* 2 */
+        font-family: inherit; /* 1 */
+        outline-offset: 0; /* 4 */
+        outline-style: none; /* 4 */
+        outline-width: 0; /* 4 */
+        -webkit-font-smoothing: inherit; /* 5 */
+        background-image: none; /* 6 */
+    }
+
+    /**
+     * Address Firefox 4+ setting `line-height` on `input` using `importnt` in
+     * the UA stylesheet.
+     */
+
+    button,
+    input {
+        line-height: normal;
+    }
+
+    /**
+     * Address inconsistent `text-transform` inheritance for `button` and `select`.
+     * All other form control elements do not inherit `text-transform` values.
+     * Correct `button` style inheritance in Chrome, Safari 5+, and IE 8+.
+     * Correct `select` style inheritance in Firefox 4+ and Opera.
+     */
+
+    button,
+    select {
+        text-transform: none;
+    }
+
+    /**
+     * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+     *  and `video` controls.
+     * 2. Correct inability to style clickable `input` types in iOS.
+     * 3. Improve usability and consistency of cursor style between image-type
+     *  `input` and others.
+     */
+
+    button,
+    html input[type="button"], /* 1 */
+    input[type="reset"],
+    input[type="submit"] {
+        cursor: pointer; /* 3 */
+        -webkit-appearance: button; /* 2 */
+    }
+
+    /**
+     * Re-set default cursor for disabled elements.
+     */
+
+    button[disabled],
+    html input[disabled] {
+        cursor: default;
+    }
+
+    /**
+     * 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.
+     * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
+     *  (include `-moz` to future-proof).
+     */
+
+    input[type="search"] {
+        -webkit-appearance: textfield; /* 1 */
+
+        box-sizing: content-box; /* 2 */
+    }
+
+    /**
+     * Remove inner padding and search cancel button in Safari 5 and Chrome
+     * on OS X.
+     */
+
+    input[type="search"]::-webkit-search-cancel-button,
+    input[type="search"]::-webkit-search-decoration {
+        -webkit-appearance: none;
+    }
+
+    /**
+     * Remove inner padding and border in Firefox 4+.
+     */
+
+    button::-moz-focus-inner,
+    input::-moz-focus-inner {
+        padding: 0;
+        border: 0;
+    }
+
+    /**
+     * 1. Remove default vertical scrollbar in IE 8/9.
+     * 2. Improve readability and alignment in all browsers.
+     */
+
+    textarea {
+        overflow: auto; /* 1 */
+        vertical-align: top; /* 2 */
+    }
+
+
+    img {
+        -webkit-user-drag: none;
+    }
+
+    /* ==========================================================================
+       Tables
+       ========================================================================== */
+
+    /**
+     * Remove most spacing between table cells.
+     */
+    table {
+        border-spacing: 0;
+        border-collapse: collapse;
+    }
+
+    *, *:before, *:after {
+        box-sizing: border-box;
+    }
+}
+
+// ========================================================
+// bar 工具栏UI生成器
+// ========================================================
+
+// 用于生成 工具栏 样式
+@mixin bar-style($name, $bg-color, $border-color, $color) {
+    // $name: 主题的名称
+    // $ba-color: 背景色
+    // $border-color: 边框色
+    // $color: 内容的字体颜色
+    &.bar-#{$name} {
+        color: $color;
+        background-color: $bg-color;
+        background-image: linear-gradient(0deg, $border-color, $border-color 50%, transparent 50%);
+
+        .title {
+            color: $color;
+        }
+
+        &.bar-footer {
+            background-image: linear-gradient(180deg, $border-color, $border-color 50%, transparent 50%);
+        }
+
+        @include retina-border-color($border-color);
+
+        .button {
+            color: $color;
+        }
+    }
+}
+
+
+@mixin bar($styles: stable positive ) {
+    position: relative;
+    z-index: $z-index-bar;
+
+    overflow: hidden;
+    color: $bar-default-text;
+
+    padding: rem($bar-padding-portrait);
+    text-align: center;
+    height: rem($bar-height);
+    background-size: 0;
+    background-color: $bar-default-bg;
+
+    display: flex;
+    width: 100%;
+    user-select: none;
+    border-width: 0;
+    @include retina-border(bottom, $bar-default-border);
+
+    .title {
+        position: absolute;
+        padding: 0 rem($bar-button-padding);
+        max-width: 80%;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+        margin: 0 auto;
+        line-height: rem($bar-height - $bar-padding-portrait * 2);
+        font-size: rem($bar-title-font-size);
+        z-index: $z-index-bar-title;
+        
+        @include text-ellipsis;
+        
+        &.title-left {
+            margin-left: 0;
+        }
+    }
+
+    .button {
+        color: $bar-default-text;
+        font-size: rem($bar-title-font-size);
+        line-height: rem($bar-button-height);
+        
+        z-index: $z-index-bar-button;
+        @include vertical-align-center;
+
+        min-height: rem($bar-button-height);
+        padding: 0 rem($bar-button-padding);
+
+        &:first-child, &:last-child {
+            position: absolute;
+        }
+
+        &:first-child {
+            left: rem($bar-padding-portrait);
+        }
+
+        &:last-child {
+            right: rem($bar-padding-portrait);
+        }
+        
+        &:after {
+            height: rem($bar-height);
+            top: rem(-($button-padding / 2 + 1));
+        }
+    
+        &:before,
+        .icon:before {
+            font-size: rem($bar-button-icon-size);
+            line-height: rem($bar-button-height);
+        }
+        
+        &.button-clear:before {
+            padding: 0;
+            font-size: rem($bar-button-icon-clear-size);
+        }
+    }
+
+    @each $style in $styles {
+        @if $style == stable {
+            @include bar-style($style,
+            $bar-stable-bg, $bar-stable-border, $bar-stable-text);
+        }
+
+        @if $style == positive {
+            @include bar-style($style,
+            $bar-positive-bg, $bar-positive-border, $bar-positive-text);
+        }
+    }
+
+    @at-root {
+        .bar-header {
+            top: 0;
+
+            & + .content {
+                top: rem($bar-height);
+            }
+        }
+
+        .bar-footer {
+            bottom: 0;
+            height: rem($bar-foot-height);
+            line-height: rem($bar-foot-height);
+            position: absolute;
+
+            background-position: top;
+
+            @include retina-border-width(top);
+            @include retina-border-width(bottom, 0);
+
+            .button {
+                line-height: rem($bar-button-foot-height);
+                min-height: rem($bar-button-foot-height);
+
+                &:after {
+                    height: rem($bar-foot-height);
+                }
+            }
+        }
+    }
+
+    &.inline {
+        padding: $bar-padding-portrait;
+
+        .button {
+            min-height: rem($bar-height - $bar-padding-portrait * 2 - 2);
+            line-height: rem($bar-height - $bar-padding-portrait * 2 - 2);
+        }
+    }
+}
+
+// ========================================================
+// button 按钮UI生成器
+// ========================================================
+@mixin button-style($name, $bg-color, $border-color, $active-bg-color, $active-border-color, $color) {
+    &.button-#{""+$name} {
+        color: $color !important;
+        border-color: $border-color;
+        background-color: $bg-color;
+
+        &.active,
+        &.actived {
+            border-color: $active-border-color;
+            background-color: $active-bg-color;
+            box-shadow: inset 0 1px 4px rgba(0,0,0,0.1);
+        }
+
+        &.button-clear {
+            color: $border-color !important;
+        }
+
+        &.button-link {
+            color: $border-color !important;
+
+            &.active {
+                color: rgba($border-color, $button-active-opacity) !important;
+            }
+        }
+    }
+}
+@mixin button($styles: stable positive energized assertive) {
+    font-size: rem($button-font-size);
+    line-height: rem($button-height - $button-border-width * 2);
+
+    position: relative;
+
+    display: inline-block;
+
+    min-height: rem($button-height);
+    padding: 0 rem($button-padding);
+
+    z-index: 1;
+    cursor: pointer;
+    text-align: center;
+    vertical-align: bottom;
+
+    white-space: nowrap;
+    text-decoration: none;
+
+    -webkit-user-drag: none;
+    user-select: none;
+
+    color: $button-default-text;
+    border: $button-border-width solid $button-default-border;
+    border-radius: rem($button-border-radius);
+    background-color: $button-default-bg;
+
+    &.active,
+    &.activated {
+        border-color: $button-default-active-border;
+        background-color: $button-default-active-bg;
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, .15);
+    }
+
+    // 添加一个隐藏的区域，增大按钮的点击面积
+    &:after {
+        position: absolute;
+        top: rem(-($button-padding / 2));
+        right: rem(-($button-padding / 2));
+        bottom: rem(-($button-padding / 2));
+        left: rem(-($button-padding / 2));
+
+        content: ' ';
+    }
+
+    &:before {
+        font-size: rem($button-icon-size);
+        float: left;
+        display: inline-block;
+    }
+
+    &.icon-left:before {
+        margin-right: $button-icon-padding;
+    }
+
+    &.icon-right:before {
+        margin-left: $button-icon-padding;
+        margin-right: 0;
+        float: right;
+    }
+
+    @each $style in $styles {
+        @if $style == stable {
+            @include button-style($style, $button-stable-bg, $button-stable-border,
+            $button-stable-active-bg, $button-stable-active-border, $button-stable-text);
+        }
+        @if $style == positive {
+            @include button-style($style, $button-positive-bg, $button-positive-border,
+            $button-positive-active-bg, $button-positive-active-border, $button-positive-text);
+        }
+        @if $style == energized {
+            @include button-style($style, $button-energized-bg, $button-energized-border,
+            $button-energized-active-bg, $button-energized-active-border, $button-energized-text);
+        }
+        @if $style == assertive {
+            @include button-style($style, $button-assertive-bg, $button-assertive-border,
+            $button-assertive-active-bg, $button-assertive-active-border, $button-assertive-text);
+        }
+    }
+
+    @at-root {
+        .button-block {
+            display: block;
+
+            width: 100%;
+            min-height: rem($button-block-height);
+            line-height: rem($button-block-height - $button-border-width * 2);
+            margin-bottom: rem($margin-base);
+        }
+
+        .button-small {
+            font-size: rem($button-small-font-size);
+            line-height: rem($button-small-height - $button-border-width * 2);
+
+            min-width: rem($button-small-height);
+            min-height: rem($button-small-height);
+            padding: rem(2px) rem($button-small-padding);
+
+            &:before {
+                font-size: rem($button-small-font-size);
+                line-height: rem($button-small-height - $button-border-width * 2) !important;
+            }
+        }
+
+        .button-large {
+            font-size: rem($button-large-font-size);
+            line-height: rem($button-large-height - $button-border-width * 2);
+
+            min-width: rem(($button-large-padding * 3) + $button-large-font-size);
+            padding: 0 rem($button-large-padding);
+
+            &.icon-right:before {
+                font-size: rem($button-large-font-size);
+                line-height: rem($button-large-height - $button-border-width * 2);
+            }
+        }
+
+        .button.disabled,
+        .button[disabled] {
+            @include disabled($button-disable-opacity);
+        }
+
+        .button-clear, .button-link {
+            padding: 0 rem($button-clear-padding);
+
+            color: $button-default-text;
+            border-width: 0;
+            background: none !important;
+            box-shadow: none !important;
+
+            transition: opacity .1s;
+
+            &.active,
+            &.activated {
+                opacity: $button-clear-active;
+            }
+        }
+
+        .button-link {
+            color: $button-link-text;
+            font-size: inherit;
+            padding: 0;
+            min-height: auto;
+            line-height: inherit;
+        }
+    }
+}
+
+// ========================================================
+// confirm UI生成器
+// ========================================================
+
+
+@mixin confirm() {
+	overflow: hidden;
+	display: block;
+	position: absolute;
+	min-width: 80%;
+	border-radius: $confirm-default-radius;
+
+	.continer {
+		margin: 0;
+
+		&.clear {
+			padding: 0;
+		}
+	}
+
+	.list+.footer:before {
+		display: none;
+	}
+
+	.footer {
+		display: flex;
+		position: relative;
+		@include retina-border(top, $confirm-default-border);
+
+		.button {
+			flex: 1;
+			margin-left: $confirm-default-padding;
+
+			&:first-child {
+				margin-left: 0;
+			}
+		}
+	}
+
+	.header, .continer, .footer {
+		padding: $confirm-default-padding;
+	}
+}
+// ========================================================
+// content 内容UI生成器
+// ========================================================
+
+@mixin content() {
+    position: absolute !important;
+    top: 0; right: 0;
+    bottom: 0; left: 0;
+    overflow: hidden;
+
+    margin-top: -1px;
+    padding-top:1px;
+    background-color: $content-back-color;
+
+    &.padding > *:first-child {
+        padding: rem($content-padding);
+    }
+
+    &.has-header {
+        top: rem($content-head-size);
+    }
+    &.has-footer {
+        bottom: rem($content-foot-size);
+    }
+}
+
+@mixin dropmenu() {
+    min-width: 80px;
+    display: inline-block;
+    position: relative;
+    @include retina-border(all, $dropmenu-border);
+
+    .item, .value {
+        width: 100%;
+        padding: 0 rem($dropmenu-padding);
+        line-height: rem($dropmenu-height);
+        display: block;
+        background-color: #FFF;
+
+        &.active, &.actived {
+            background-color: $dropmenu-active-bg;
+        }
+    }
+
+    >.wrap {
+        left: -1px;
+        right: -1px;
+        z-index: 1;
+        background: #fff;
+        position: absolute;
+        margin-top: rem(2px);
+        box-shadow: 0 rem(1px) rem(6px) hsla(0, 0%, 39%, .2);
+        display: block;
+        @include retina-border(all, $dropmenu-border);
+    }
+}
+
+/* flex 布局组件 */
+
+@mixin flex-layout() {
+
+	.flex, .flex-col, .flex-row, .flex-split {
+		display: flex;
+		flex-direction: row;
+
+		/* 元素对其方式 */
+		&.align-start {
+			justify-content: flex-start;
+		}
+
+		&.align-center {
+			justify-content: center;
+		}
+
+		&.align-end {
+			justify-content: flex-end;
+		}
+
+		>*, .flex-item {
+			flex: 0 0 auto;
+
+			@for $space from 1 through 8 {
+				/* 默认的横向栅格布局 */
+				&.flex-#{$space} {
+					flex: $space 1 0;
+				}
+			}
+		}
+
+		.flex-main {
+			flex: 1;
+		}
+	}
+
+	.flex-split {
+		>*, .flex-item {
+			flex: 1;
+		}
+	}
+
+	.flex-wrap {
+		flex-wrap: wrap;
+	}
+
+	.flex-col {
+		flex-direction: column;
+	}
+
+	.flex-row {
+		flex-wrap: nowrap;
+		flex-direction: row;
+	}
+
+	.flex-inline {
+		display: inline-flex;
+	}
+
+	/* 空余控件平分 */
+	.space-between {
+		justify-content: space-between;
+	}
+
+	.space-around {
+		justify-content: space-around;
+	}
+
+	/* 栅格化相关代码 */
+	.flex-grid {
+		display: flex;
+
+		@for $space from 1 through $flex-grid-default {
+			/* 默认的横向栅格布局 */
+			>*, .flex-item {
+				flex: 1 1 auto;
+
+				&.grid-#{$space} {
+					width: percentage($space/$flex-grid-default) !important;
+				}
+			}
+
+
+			/* 纵向栅格布局 */
+			&.flex-col {
+				>*, .flex-item {
+					flex: 1 1 auto;
+
+					&.grid-#{$space} {
+						width: auto !important;		// 恢复默认属性
+						flex: $space;
+					}
+				}
+			}
+		}
+	}
+}
+
+// ========================================================
+// form 表单元素UI
+// ========================================================
+
+
+/**
+ * checkbox 代码借鉴: http://forsigner.com/magic-check/
+ * 实现核心: 采用 border 来做出来 对勾 效果，然后旋转
+ */
+
+@mixin form() {
+    @at-root {
+        input, button, select, textarea {
+            font-size: rem($font-size-base);
+            font-weight: normal;
+            font-family: $font-family-base;
+        }
+
+        input {
+            border: 0;
+            padding: 0;
+            vertical-align: middle;
+
+            &[type="text"],
+            &[type="password"] {
+                width: 100%;
+                height: rem($input-height-base);
+                line-height: rem($line-height-computed);
+            }
+
+            &[type="checkbox"], &[type="radio"] {
+                display: inline-block;
+            }
+
+            // 禁用原生样式，方便后面重置样式
+            &.checkbox, &.radio, &.switch {
+                cursor: pointer;
+                position: relative;
+                background-color: transparent;
+                text-align: center;
+                height: $input-inline-size;
+                width:  $input-inline-size;
+                -webkit-appearance: none;
+
+                &:disabled, &.disabled {
+                    opacity: .35;
+                    cursor: not-allowed;
+                    pointer-events: none;
+                }
+            }
+
+            &.checkbox, &.radio {
+                margin: $input-inline-fix;
+
+                &:before, &:after {
+                    transition: 0.3s cubic-bezier(0, 1.1, 1, 1.1);
+                    transition-property: background-color, display;
+                }
+
+                &:before {
+                    content: " ";
+                    display: block;
+                    border: $input-check-border-base solid $color-positive;
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                }
+
+                &:after {
+                    content: " ";
+                    display: none;
+                    position: absolute;
+                }
+
+                &:checked:after,
+                &.checked:after {
+                    display: block;
+                }
+            }
+
+            &.checkbox {
+                &.circle {
+                    &:before {
+                        border-radius: 50%;
+                    }
+
+                    &:after {
+                        top: $input-check-top-circle;
+                        left: $input-check-left-circle;
+                    }
+                }
+
+                &:before {
+                    border-radius: $input-check-radius;
+                }
+
+                &:after {
+                    width: $input-check-width;
+                    height: $input-check-height;
+                    top: $input-check-top;
+                    left: $input-check-left;
+                    transform: rotate(45deg);
+                    border: $input-check-border-check solid #fff;
+                    border-top: 0;
+                    border-left: 0;
+                }
+
+                &:checked,
+                &.checked {
+                    &:before {
+                        background-color: $color-positive;
+                    }
+                }
+            }
+
+
+            &.radio {
+                line-height: $input-inline-size;
+
+                &:before {
+                    border-radius: 50%;
+                }
+
+                &:after {
+                    width: $input-radio-size;
+                    height: $input-radio-size;
+                    margin: auto;
+
+                    @include absolute-align-center;
+                    border-radius: 50%;
+                    background-color: $color-positive;
+                }
+            }
+
+            &.switch {
+                width: $input-switch-width;
+                height: $input-switch-height;
+                border-radius: $input-switch-height;
+                overflow: hidden;
+
+                &:before, &:after {
+                    content: " ";
+                    display: block;
+                    overflow: hidden;
+                    position: absolute;
+                }
+
+                &:before {
+                    z-index: 2;
+                    left: $input-switch-border;
+                    @include vertical-align-center;
+                    border-radius: 50%;
+                    width: $input-switch-height - $input-switch-border * 2;
+                    height: $input-switch-height - $input-switch-border * 2;
+                    background-color: $input-switch-center;
+                    box-shadow: 0 $input-shadow-vpos
+                                  $input-shadow-blur
+                                  rgba(0, 0, 0, $input-shadow-opacity),
+
+                                0 $input-shadow-base
+                                  $input-shadow-base
+                                  rgba(0, 0, 0, $input-shadow-opacity/2);
+
+                    transition: 0.3s cubic-bezier(0, 1.1, 1, 1.1);
+                    transition-property: background-color, transform;
+                }
+
+                &:after {
+                    z-index: 1;
+                    left: rem($input-switch-padding);
+                    right: rem($input-switch-padding);
+                    top: rem($input-switch-padding);
+                    bottom: rem($input-switch-padding);
+                    border-radius: $input-switch-height;
+                    background-color: $input-switch-uncheck;
+
+                    transition: 0.3s cubic-bezier(0, 1.1, 1, 1.1);
+                    transition-property: background-color, border;
+                }
+
+                &:checked,
+                &.checked {
+                    &:before {
+                        transform: translate3d($input-switch-move, -50%, 0);
+                    }
+
+                    &:after {
+                        border-color: $input-switch-back;
+                        background-color: $input-switch-back;
+                    }
+                }
+            }
+        }
+
+        textarea {
+            border: $input-border-width solid $input-border-color;
+        }
+    }
+}
+
+// ========================================================
+// list 列表元素UI
+// ========================================================
+
+
+@mixin list() {
+    display: block;
+    overflow: hidden;
+    color: $list-item-default-text;
+    position: relative;
+    margin-bottom: rem($list-margin-bottom);
+    background-color: $list-item-default-bg;
+    @include retina-border(top bottom, $list-item-default-border);
+
+    &.list-inset {
+        @include retina-border-width(all);
+        @include retina-border-radius($list-border-radius);
+    }
+
+    &.allact .item.active,
+    .item[href].active,
+    .item[link].active,
+    .item.canact.active {
+        @if ($build-rem == true) {
+            background-color: $list-item-default-active-bg;
+        } @else {
+            @include retina-border-width(bottom, 0);
+
+            &:after {
+                content: " ";
+                position: absolute;
+                z-index: -1;
+                top: 0;
+                height: 100%;
+                left: -50%;
+                width: 200%;
+                background-color: $list-item-default-active-bg;
+            }
+        }
+    }
+
+    .item.clear.active {
+        @if ($build-rem != true) {
+            @include retina-border-width(bottom, 1px);
+
+            &:after {
+                display: none;
+            }
+        }
+    }
+
+    .item {
+        display: block;
+        position: relative;
+        z-index: $z-index-item;
+
+        line-height: rem($list-item-line-height);
+        min-height: rem($list-item-height);
+
+        font-size: rem($list-item-font-size);
+        padding: rem($list-item-padding);
+        @include retina-border(bottom, $list-item-default-border);
+
+        &:last-child {
+            @include retina-border-width(bottom, 0);
+        }
+
+        &.item-inline {
+            padding: rem($list-item-padding/3) rem($list-item-padding);
+            min-height: rem($list-item-padding/3 + $list-item-line-height);
+            border-bottom-width: 0;
+        }
+
+        &.inline-first {
+            margin-top: rem($list-item-padding/3*1.5);
+        }
+
+        &.inline-last {
+            margin-bottom: rem($list-item-padding/3*1.5);
+        }
+
+        &.item-embed {
+            margin-left: rem($list-item-padding);
+            margin-right: rem($list-item-padding);
+
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .icon, .icon-right {
+            color: $list-item-icon-color;
+
+            &:before {
+                font-size: rem($list-item-icon-right-font-size);
+                margin-top: rem($list-item-icon-fix);
+            }
+        }
+
+        .label-right {
+            max-width: 55%;
+            @include text-ellipsis();
+        }
+    }
+    &.list-embed {
+        padding: 0 rem($list-item-padding);
+
+        .item {
+            padding: rem($list-item-padding) 0;
+
+            &.item-inline {
+                padding: rem($list-item-padding/3) 0;
+            }
+        }
+    }
+    &.list-embed-left {
+        .item {
+            padding-left: 0;
+            margin-left: rem($list-item-padding);
+        }
+    }
+
+
+    /*====================================================
+     * item-input 相关代码
+     *====================================================*/
+    .item {
+        &.item-input {
+            padding: rem($list-item-inset-top-padding) rem($list-item-padding);
+
+            input {
+                font-size: inherit;
+            }
+
+            &.item-embed {
+                padding-right: 0;
+            }
+        }
+    }
+
+
+    /*====================================================
+     * item-avatar 相关代码
+     *====================================================*/
+    .item {
+        &.item-avatar,
+        &.item-avatar-large {
+            .avatar {
+                border-radius: $list-border-radius;
+                position: absolute;
+                top: rem($list-item-padding);
+                left: rem($list-item-padding);
+                bottom: rem($list-item-padding);
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            .line {
+                @include text-ellipsis();
+                position: relative;
+
+                &:first-of-type {
+                    top: rem(-$list-item-avatar-fix);
+                }
+
+                &:last-of-type {
+                    bottom: rem(-$list-item-avatar-fix);
+                }
+            }
+        }
+
+        &.item-avatar {
+            min-height: rem($list-item-padding*2 + $list-item-avatar);
+            padding-left: rem($list-item-padding*2 + $list-item-avatar);
+
+            .avatar {
+                width: rem($list-item-avatar);
+                height: rem($list-item-avatar);
+            }
+
+            .line {
+                line-height: rem($list-item-avatar/2);
+            }
+        }
+
+        &.item-avatar-large {
+            min-height: rem($list-item-padding*2 + $list-item-avatar-large);
+            padding-left: rem($list-item-padding*2 + $list-item-avatar-large);
+
+            .avatar {
+                width: rem($list-item-avatar-large);
+                height: rem($list-item-avatar-large);
+            }
+
+            .line {
+                line-height: rem($list-item-avatar-large/3);
+            }
+        }
+    }
+    &.list-embed .item,
+    &.list-embed-left .item,
+    .item.item-embed, {
+        &.item-avatar,
+        &.item-avatar-large {
+            .avatar {
+                left: 0;
+            }
+        }
+
+        &.item-avatar {
+            padding-left: rem($list-item-padding + $list-item-avatar);
+        }
+
+        &.item-avatar-large {
+            padding-left: rem($list-item-padding + $list-item-avatar-large);
+        }
+    }
+
+
+    /*====================================================
+     * label-left,icon-left 公用 相关代码
+     *====================================================*/
+    .item {
+        &.label-left .label,
+        &.icon-left .icon,
+        &.icon-left .icon-small {
+            position: absolute;
+            left: rem($list-item-padding);
+            top:50%;
+            transform: translate(0,-50%);
+        }
+    }
+    &.list-embed .item,
+    &.list-embed-left .item,
+    .item.item-embed {
+        &.label-left .label,
+        &.icon-left .icon,
+        &.icon-left .icon-small {
+            left: 0;
+        }
+    }
+
+
+    /*====================================================
+     * label-left 相关代码
+     *====================================================*/
+    .item {
+        &.label-left {
+            padding-left: rem($list-item-inset-left-padding);
+
+            .label {
+                display: block;
+                width: rem($list-item-inset-left-padding - $list-item-padding);
+                min-height: rem($list-item-line-height);
+                line-height: rem($list-item-line-height);
+            }
+        }
+    }
+
+
+    /*====================================================
+     * icon-left 相关代码
+     *====================================================*/
+    .item {
+        &.icon-left {
+            padding-left: rem($list-item-icon-padding);
+
+            &.label-left {
+                padding-left: rem($list-item-icon-label-padding);
+
+                .label {
+                    left: rem($list-item-icon-label-left);
+                }
+            }
+        }
+    }
+
+
+    /*====================================================
+     * icon-right,item-button-right 公用 相关代码
+     *====================================================*/
+    .item {
+        &.icon-right .icon-right,
+        &.label-right .label-right,
+        &.item-button-right .button {
+            position: absolute;
+            right: rem($list-item-padding);
+            top:50%;
+            transform: translate(0,-50%);
+        }
+    }
+    &.list-embed .item,
+    .item.item-embed {
+        &.icon-right .icon-right,
+        &.icon-right .label-right,
+        &.item-button-right .button {
+            right: 0;
+        }
+    }
+
+
+    /*====================================================
+     * icon-right 相关代码
+     *====================================================*/
+    .item {
+        &.icon-right {
+            padding-right: rem($list-item-icon-right-padding);
+
+            .icon-right:before {
+                font-size: rem($list-item-icon-right-font-size);
+            }
+        }
+    }
+
+    /*====================================================
+     * label-right 相关代码
+     *====================================================*/
+    .item {
+        &.icon-right {
+            .label-right {
+                right: rem($list-item-padding + $list-item-label-right-padding);
+            }
+
+            &.item-embed .label-right {
+                right: rem($list-item-label-right-padding);
+                line-height: rem($list-item-line-height);
+            }
+        }
+    }
+
+
+
+    /*====================================================
+     * item-button-right 相关代码
+     *====================================================*/
+    .item {
+        &.item-button-right {
+            padding-right: rem($list-item-inset-left-padding);
+
+            .button {
+                font-size: rem($list-item-button-font-size);
+                padding: 0 rem($list-item-button-padding);
+                line-height: rem($list-item-button-height);
+                min-height: rem($list-item-button-height);
+
+                &.button-clear {
+                    padding: 0;
+                    font-size: rem($list-item-font-size);
+                }
+            }
+        }
+    }
+}
+
+/**
+ * modal 为具体的 modal 组件样式
+ * @time 2016-04-28 14:40
+ */
+@mixin modal() {
+    position: absolute;
+    left: 50%;
+    display: flex;
+    z-index: 10;
+    flex-direction: column;
+    transform: translateX(-50%);
+
+    &.full {
+        width: 100%;
+        height: 100%;
+    }
+
+    &.center {
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    &.top {
+        top: 0;
+    }
+
+    &.bottom {
+        bottom: 0;
+    }
+
+    .header, .bar-header,
+    .footer, .bar-footer, .buttons {
+        flex-shrink: 0;
+    }
+
+    .wrapper {
+        width: 100%;
+        height: 100%;
+        background-color: #FFFFFF;
+    }
+
+    .buttons {
+        display: flex;
+
+        .button {
+            flex: 1;
+        }
+    }
+}
+
+// popup 弹框组件
+
+@mixin popup($prefix: pop-) {
+    .#{$prefix}wrapper {
+        display: none;
+    	width: 100%;
+    	height: 100%;
+    	top: 0; left: 0;
+        pointer-events: none;
+    	position: absolute;
+
+        .#{$prefix}item {
+    		width: 100%;
+    		height: 100%;
+    		overflow: hidden;
+    		display: none;
+            // 让击事件传点到后面去
+            pointer-events: none;
+    		position: absolute;
+
+            >* {
+                // 恢复元素默认的点击效果
+                pointer-events: auto;
+            }
+
+    		.back {
+    			width: 100%;
+    			height: 100%;
+                z-index: -1;
+                top: 0; left: 0;
+                position: absolute;
+    			background-color: $popup-back-color;
+    		}
+    	}
+    }
+}
+
+// ========================================================
+// content 内容UI生成器
+// ========================================================
+
+@mixin scroll() {
+    display: block;
+    width: 100%;
+    z-index: 1;
+    overflow: hidden;
+    position: relative;
+
+    .scroll-x {
+        height: auto;
+        display: table;
+        white-space: nowrap;
+    }
+
+    >*:first-child {
+        padding-bottom: 1px;
+    }
+
+    .scroll_pullDown, .scroll_pullUp {
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+        color: #fff;
+        padding: 0 15%;
+        text-align: center;
+        overflow: hidden;
+        height: rem($content-pull-height);
+        line-height: rem($content-pull-height);
+        background-color: $content-pull-back;
+
+        .icon {
+            float: left;
+        }
+    }
+
+    .iScrollVerticalScrollbar,
+    .iScrollHorizontalScrollbar {
+        position:absolute;
+        z-index:9999;
+
+        .iScrollIndicator {
+            box-sizing: border-box;
+            position: absolute;
+            background: rgba(0,0,0,0.5);
+            border-radius: 3px;
+        }
+
+        &.pointerNone {
+            pointer-events: none;
+        }
+    }
+
+    .iScrollVerticalScrollbar {
+        width: rem(3px);
+
+        right: rem(2px);
+        bottom: rem(2px); top: rem(2px);
+    }
+
+    .iScrollHorizontalScrollbar {
+        height: rem(3px);
+
+        right: rem(2px); left: rem(2px);
+    }
+
+    .scroll_pullDown {
+        top: rem(-$content-pull-height);
+    }
+
+    .scroll_pullUp {
+        bottom: rem(-$content-pull-height);
+    }
+}
+
+// ========================================================
+// slider 轮播组件
+// ========================================================
+
+@mixin slider() {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+
+    .wrapper {
+        font-size: 0;
+        display: table;
+        width: 100%;
+        position: relative;
+        white-space: nowrap;
+
+        &.hasInit .slider-item {
+            display: inline-block;
+        }
+    }
+
+    .slider-item {
+        display: none;
+        width: 100%;
+
+        &:first-child {
+            display: inline-block;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        .desc {
+            font-size: rem($slider-font-size);
+        }
+    }
+
+    .points {
+        z-index: 1;
+        text-align: center;
+        width: 100%;
+        bottom: 0;
+        display: table;
+        height: rem($slider-points-height);
+        padding: rem(($slider-points-height - $slider-points-size) / 2) 0;
+        position: absolute;
+
+        .item {
+            margin: 0 rem($slider-points-margin);
+            background-color: rgba(0, 0, 0, $slider-points-opacity);
+            display: inline-block;
+            width: rem($slider-points-size);
+            height: rem($slider-points-size);
+            border-radius: 50%;
+
+            &.actived {
+                background-color: $slider-points-active;
+            }
+        }
+    }
+}
+
+// ========================================================
+// tab UI生成器
+// ========================================================
+@mixin tabs-style($name, $bg-color, $border-color, $color, $color-active, $striped) {
+    &.tabs-#{$name} {
+        color: $color;
+        background-color: $bg-color;
+        background-image: linear-gradient(0deg, $border-color, $border-color 50%, transparent 50%);
+
+        // 设置视网膜屏幕下得上下border颜色
+        @include retina-border-color($border-color);
+
+        .tab-item {
+            color: $color;
+            background-color: $bg-color;
+
+            &.actived {
+                color: $color-active;
+            }
+        }
+
+        &.tabs-striped, &.tabs-striped-top {
+            .tab-item.actived:before {
+                background-color: $striped !important;
+            }
+        }
+    }
+}
+
+@mixin tabs($styles: stable positive) {
+    line-height: rem($tabs-height);
+
+    z-index: $z-index-tabs;
+
+    color: $tabs-default-text;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+
+    width: 100%;
+    height: rem($tabs-height);
+
+    text-align: center;
+    background-size: 0;
+    background-color: $tabs-default-bg;
+
+    border-width: 0;
+    @include retina-border(top, $tabs-default-border);
+
+    .tab-item {
+        display: block;
+        flex: 1;
+        opacity: 1;
+        position: relative;
+        font-size: rem($tabs-text-font-size);
+        text-decoration: none;
+        @include text-ellipsis();
+
+        -webkit-user-drag: none;
+        user-select: none;
+
+        &.active {
+            opacity: $active-opacity;
+        }
+
+        &.actived {
+            color: $tabs-default-active;
+
+            &:before {
+                background-color: $tabs-default-striped !important;
+            }
+        }
+
+        &.disabled,
+        &[disabled] {
+            opacity: .4;
+            cursor: default;
+            pointer-events: none;
+        }
+    }
+
+    .icon {
+        display: block;
+        font-size: rem($tabs-icon-size);
+        height: rem($tabs-icon-size);
+    }
+
+    &.tabs-icon-top,
+    &.tabs-icon {
+        .tab-item {
+            padding-top: rem($tabs-padding);
+            font-size: rem($tabs-text-font-size-side-icon);
+            line-height: rem($tabs-text-font-size);
+        }
+    }
+
+    &.tabs-icon-only {
+        .icon {
+            height: 100%;
+            line-height: inherit;
+            font-size: rem($tabs-icon-size-only);
+        }
+    }
+
+    &.tabs-header,
+    &.tabs-footer {
+        position: absolute;
+        left: 0; right: 0;
+    }
+
+    &.border-bottom,
+    &.tabs-header {
+        @include retina-border-width(top, 0);
+        @include retina-border-width(bottom);
+    }
+
+    &.tabs-header {
+        top: 0;
+    }
+
+    &.tabs-footer {
+        bottom: 0;
+    }
+
+    &.tabs-striped, &.tabs-striped-top {
+        .tab-item.actived:before {
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, 0);
+            content: ' ';
+            width: $tabs-striped-width;
+            height: rem($tabs-striped-height);
+            background-color: $tabs-default-text;
+        }
+    }
+
+    &.tabs-striped {
+        .tab-item.actived:before {
+            bottom: 0;
+        }
+    }
+
+    &.tabs-striped-top {
+        .tab-item.actived:before {
+            top: 0;
+        }
+    }
+
+    @each $style in $styles {
+        @if $style == stable {
+            @include tabs-style($style, $tabs-stable-bg, $tabs-stable-border,
+                $tabs-stable-text, $tabs-stable-active, $tabs-stable-striped);
+        }
+        @if $style == positive {
+            @include tabs-style($style, $tabs-positive-bg, $tabs-positive-border,
+                $tabs-positive-text, $tabs-positive-active, $tabs-positive-striped);
+        }
+    }
+}
+
+// ========================================================
+// text UI生成器
+// ========================================================
+
+@mixin text() {
+	body {
+		font-size: rem($text-size-default);
+		font-family: $font-family-sans-serif;
+		-webkit-font-smoothing: antialiased;
+  		-moz-osx-font-smoothing: grayscale;
+  		color: $text-color-default;
+	}
+
+	.text-energized {
+		color: $text-color-energized;
+	}
+
+	.text-mark {
+		color: $text-mark-color;
+		font-size: rem($text-mark-font);
+	}
+
+	.text-money {
+		font-family: $text-money-family;
+		color: $text-money-color;
+	}
+
+	.text-large {
+		font-size: rem($text-size-large);
+	}
+
+	.text-small {
+		font-size: rem($text-size-small);
+	}
+}
+@mixin timer() {
+    width: 100%;
+    overflow: hidden;
+    background-color: #fff;
+
+    .screen {
+        display: flex;
+        height: 220px;
+        width: 100%;
+        overflow: hidden;
+
+        &.hideOut {
+            display: none;
+        }
+
+        .time-item {
+            height: $timer-item-height;
+            flex: 1;
+            margin: $timer-item-height*2 $timer-base-margin;
+            text-align: center;
+            position: relative;
+
+            &:before {
+                z-index: 99;
+                content: " ";
+                display: block;
+                position: absolute;
+                height: $timer-item-height;
+                width: 100%;
+                top: 0; left: 0;
+                border: 1px solid #007aff;
+                border-width: 1px 0;
+            }
+
+            .list {
+                margin: 0;
+                border-width: 0;
+
+                &:before {
+                    display: none;
+                }
+
+                .item {
+                    border-width: 0;
+
+                    &:before {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+
+    .bottom {
+        margin: rem($timer-base-margin);
+        text-align: right;
+
+        .button {
+            padding: 0 rem($timer-button-padding);
+            margin: 0 rem($timer-button-margin);
+        }
+    }
+}
+
+@mixin tip() {
+    display: inline-block;
+    position: absolute;
+    color: $tip-text-color;
+    fill: #ffffff;
+    word-break: break-all;
+    @include absolute-align-center;
+    border-radius: $tip-border-radius;
+    padding: rem($tip-padding-vertical) rem($tip-padding-horizontal);
+    background-color: $tip-back-color;
+
+    .text {
+        font-size: 1.2em;
+        line-height: 1.5;
+    }
+
+    .icon {
+        width: rem($tip-icon-size);
+        height: rem($tip-icon-size);
+        margin: 0 auto;
+        display: block;
+        fill: #ffffff;
+        background-size: 100% 100%;
+
+        &.loading {
+            background-image: url($tip-svg-loading);
+        }
+
+        &.success {
+            background-image: url($tip-svg-success);
+        }
+
+        &.error {
+            background-image: url($tip-svg-error);
+        }
+    }
+}
+
+// ========================================================
+// tools 常用工具样式生成器
+// ========================================================
+
+@mixin tools() {
+    .disabled {
+        @include disabled();
+    }
+
+    .block {
+        display: block !important;
+    }
+
+    .hide {
+        display: none !important;
+    }
+
+    .show {
+        display: block !important;
+    }
+
+    .float-left {
+        float: left;
+    }
+
+    .float-right {
+        float: right;
+    }
+
+    .text-ellipsis {
+        @include text-ellipsis();
+    }
+
+    .text-ellipsis-two {
+        @include text-ellipsis(2);
+    }
+
+    .text-justify {
+        @include text-justify();
+    }
+
+    .text-left {
+        text-align: left;
+    }
+
+    .text-right {
+        text-align: right;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    *[class*="retina-border"] {
+        $ratio: 2 !default; // 缩放系数
+        $color: $border-default-color !default;
+
+        position: relative;
+        &:before {
+            @include retina-border-content($color, $ratio);
+        }
+    }
+
+    // 修复 flex 子元素 不能 100% 高度
+    .flex-full-height {
+        @include flex-full-height;
+    }
+
+    .retina-border {
+        border-width: 0 !important;
+        @include retina-border-width(all);
+    }
+
+    .retina-border-top {
+        border-top-width: 0 !important;
+        @include retina-border-width(top);
+    }
+
+    .retina-border-right {
+        border-right-width: 0 !important;
+        @include retina-border-width(right);
+    }
+
+    .retina-border-bottom {
+        border-bottom-width: 0 !important;
+        @include retina-border-width(bottom);
+    }
+
+    .retina-border-left {
+        border-left-width: 0 !important;
+        @include retina-border-width(left);
+    }
+
+    .margin-none {
+        margin: 0 !important;
+    }
+
+    .padding {
+        padding: rem($content-padding);
+    }
+}
+
+@mixin view() {
+    mg-view {
+        height: 100%;
+        position: relative;
+
+        > .wrapper {
+            z-index: 10;
+
+            &.slideInRight, &.slideInLeft {
+                z-index: 20;
+            }
+
+            &.hasNavBar > mg-page {
+                height: auto; top: 0;
+                position: absolute;
+                bottom: rem($tabs-height);
+            }
+
+            &.slideInRight {
+                @include animate(slideInRight, $view-wrapper-animate-time, forwards);
+            }
+
+            &.slideInLeft {
+                @include animate(slideInLeft, $view-wrapper-animate-time, forwards);
+            }
+
+            &.slideOutRight {
+                @include animate(slideOutRight, $view-wrapper-animate-time, forwards);
+            }
+
+            &.slideOutLeft {
+                @include animate(slideOutLeft, $view-wrapper-animate-time, forwards);
+            }
+
+            > .loader {
+                z-index: 1;
+                pointer-events: none;
+
+                .spiner {
+                    width: rem($tip-icon-size);
+                    height: rem($tip-icon-size);
+                    background-size: 100% 100%;
+                    border-radius: $tip-border-radius;
+                    background-color: $tip-back-color;
+                    position: absolute;
+                    background-image: url($tip-svg-loading);
+                    @include absolute-align-center;
+                }
+
+                &.fadeOut, .spiner.fadeOut {
+                    @include animate(fadeOut, $view-loader-hide-time, forwards);
+                }
+            }
+        }
+    }
+
+    mg-view, mg-page,
+    mg-view > .wrapper,
+    mg-view > .wrapper > .loader {
+        width: 100%;
+        display: block;
+        overflow: hidden;
+        -webkit-backface-visibility: hidden;
+    }
+
+    mg-view > .wrapper,
+    mg-view > .wrapper > .loader {
+        top: 0; left: 0;
+        bottom: 0; right: 0;
+        position: absolute;
+    }
+
+    mg-page {
+        display: block;
+        z-index: 10;
+        width: 100%;
+        height: 100%;
+        flex: 1;
+        overflow: hidden;
+        position: relative;
+        background-color: #fff;
+
+        &.viewShow {
+            @include animate(fadeIn, $view-page-show-time, forwards);
+        }
+    }
+}

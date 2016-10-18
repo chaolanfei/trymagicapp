@@ -1,0 +1,29 @@
+@charset "utf-8";
+
+/*********************************************************************
+ * reset 浏览器重置样式输出
+ *********************************************************************/
+@include reset();
+
+
+/*********************************************************************
+ * coreui 核心UI组件样式输出
+ *********************************************************************/
+.bar                { @include bar(); }
+.button             { @include button(); }
+.tabs               { @include tabs(); }
+.content            { @include content(); }
+.scroll             { @include scroll(); }
+.list               { @include list(); }
+.tip                { @include tip(); }
+.slider             { @include slider(); }
+.timer              { @include timer(); }
+.modal              { @include modal(); }
+.dropmenu           { @include dropmenu(); }
+
+@include view();            // view   视图容器元素
+@include popup();           // popup  弹框容器组件
+@include form();			// form   表单组件元素
+@include text();			// text   文字样式代码
+@include tools();			// tools  常用工具样式类
+@include flex-layout();		// flex   布局组件样式
